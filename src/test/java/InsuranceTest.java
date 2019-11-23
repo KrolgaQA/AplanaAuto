@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -33,15 +34,28 @@ public class InsuranceTest {
 
     }
 
-
     @Test
-    public void testInsurance() {
+    public void testInsurance() throws InterruptedException {
         //Создаем ожидание
         Wait<WebDriver> chromeWait = new WebDriverWait(chromeDriver, 50, 50000);
 
+
         //Ждем, пока появится окно с подтверждением куки и закрываем его
-        chromeWait.until(ExpectedConditions.elementToBeClickable(chromeDriver.
-                findElement(By.xpath("//a[contains(@class, 'cookie-warning__close') and contains(@title, 'Закрыть предупреждение')]")))).click();
+        int n = 5;
+        for (int i = 1; i <= n; i++) {
+            try {
+                chromeWait.until(ExpectedConditions.elementToBeClickable(chromeDriver.
+                        findElement(By.xpath("//a[contains(@class, 'cookie-warning__close') and contains(@title, 'Закрыть предупреждение')]")))).click();
+                break;
+            } catch (WebDriverException driverException) {
+                System.out.println("Click on element failed. Attempt: " + i + "/" + n);
+                Thread.sleep(1000);
+            }
+            if (i == n) {
+                Assert.fail("Failed to click " + n + " times");
+            }
+        }
+
 
         //Поиск и клик по кнопке "Страхование"
         chromeDriver.
@@ -51,7 +65,6 @@ public class InsuranceTest {
 
         //Проверка, что Title соответствует заявленному «Сбербанк» - Страхование путешественников
         Assert.assertEquals(chromeDriver.getTitle(), "«Сбербанк» - Страхование путешественников");
-
 
 
         //Ждем, пока появится элемент - кнопка "Оформить сейчас" и кликаем по ней
