@@ -41,7 +41,7 @@ public class InsuranceTest {
 
         //Ждем, пока появится окно с подтверждением куки и закрываем его
         chromeWait.until(ExpectedConditions.elementToBeClickable(chromeDriver.
-                findElement(By.xpath("//a[contains(@class, 'cookie-warning__close') and contains(@title, 'Закрыть предупреждение')]"))));
+                findElement(By.xpath("//a[contains(@class, 'cookie-warning__close') and contains(@title, 'Закрыть предупреждение')]")))).click();
 
         //Поиск и клик по кнопке "Страхование"
         chromeDriver.
