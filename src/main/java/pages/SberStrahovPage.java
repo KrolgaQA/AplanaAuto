@@ -1,13 +1,10 @@
 package pages;
 
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class SberStrahovPage {
-    WebDriver driver;
+public class SberStrahovPage extends BasePage {
     @FindBy(xpath = "//span[contains(@class, 'b-button-block-center')]//span[contains(text(), 'Оформить')]")
     WebElement stepOneBtn;
 
@@ -58,18 +55,110 @@ public class SberStrahovPage {
     public WebElement issueDateInput;
 
 
+//    public SberStrahovPage(WebDriver driver) {
+//        PageFactory.initElements(driver, this);
+//        this.driver = driver;
+//    }
+//
+//    public SberStrahovPage(){
+//        PageFactory.initElements(BaseSteps.getDriver(), this);
+//        this.driver = BaseSteps.getDriver();
+//
+//    }
 
-    public SberStrahovPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        this.driver = driver;
-    }
-
-    public void applyInsurance(){
+    public void applyInsurance() {
         stepOneBtn.click();
     }
 
-    public void continueInsurance(){
+    public void continueInsurance() {
         continueBtn.click();
+    }
+
+
+    public void fillCalendarPicker(String calendarName, String month, String year){
+        switch (calendarName) {
+            case "Дата рождения застрахованного":
+                calendarPickDate(insuredBirthDateItem, month, year);
+            case "Дата рождения страхователя":
+                calendarPickDate(birthDateItem, month, year);
+            case "Дата выдачи паспорта":
+                calendarPickDate(issueDateItem, month, year);
+        }
+    }
+
+    public void fillFieldByName(String fieldName, String value) {
+        switch (fieldName) {
+            case "Фамилия застрахованного":
+                fillField(insuredSurnameItem, value);
+                break;
+            case "Имя застрахованного":
+                fillField(insuredNameItem, value);
+                break;
+            case "Фамилия страхователя":
+                fillField(surnameItem, value);
+                break;
+            case "Имя страхователя":
+                fillField(nameItem, value);
+                break;
+            case "Отчество страхователя":
+                fillField(middlenameItem, value);
+                break;
+            case "Серия паспорта страхователя":
+                fillField(passportSeriesItem, value);
+                break;
+            case "Номер паспорта страхователя":
+                fillField(passportNumberItem, value);
+                break;
+            case "Данные о выдаче паспорта":
+                fillField(issuePlaceItem, value);
+                break;
+            default:
+                throw new AssertionError("Поле '" + fieldName + "' не объявлено на странице");
+        }
+    }
+
+    public void checkFieldByName(String fieldName, String value) {
+        switch (fieldName) {
+            case "Фамилия застрахованного":
+                checkFillField(insuredSurnameItem, value);
+                break;
+            case "Имя застрахованного":
+                checkFillField(insuredNameItem, value);
+                break;
+            case "Дата рождения застрахованного":
+                checkFillField(insuredBirthDateInput, value);
+                break;
+            case "Фамилия страхователя":
+                checkFillField(surnameItem, value);
+                break;
+            case "Имя страхователя":
+                checkFillField(nameItem, value);
+                break;
+            case "Отчество страхователя":
+                checkFillField(middlenameItem, value);
+                break;
+            case "Дата рождения страхователя":
+                checkFillField(birthDateInput, value);
+                break;
+            case "Серия паспорта страхователя":
+                checkFillField(passportSeriesItem, value);
+                break;
+            case "Номер паспорта страхователя":
+                checkFillField(passportNumberItem, value);
+                break;
+            case "Данные о выдаче паспорта":
+                checkFillField(issuePlaceItem, value);
+                break;
+            case "Дата выдачи паспорта":
+                checkFillField(issueDateInput, value);
+                break;
+            default:
+                throw new AssertionError("Поле '" + fieldName + "' не объявлено на странице");
+        }
+    }
+
+    public void checkErrText(String value){
+        checkErrText(errText,value);
     }
 
 }

@@ -5,13 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SberMainPage extends BasePage {
-    WebDriver driver;
+    //WebDriver driver;
 
     @FindBy(xpath = "//a[contains(@class, 'cookie-warning__close') and contains(@title, 'Закрыть предупреждение')]")
     WebElement cookieCloseButton;
@@ -22,11 +21,16 @@ public class SberMainPage extends BasePage {
     @FindBy(xpath = "//a[contains(@class, 'lg-menu__sub-link') and contains(text(), 'Страхование путешественников')]")
     WebElement subMenu;
 
-    public SberMainPage(WebDriver driver){
-        PageFactory.initElements(driver, this);
-        this.driver = driver;
-
-    }
+//    public SberMainPage(WebDriver driver){
+//        PageFactory.initElements(driver, this);
+//        this.driver = driver;
+//
+//    }
+//    public SberMainPage(){
+//        PageFactory.initElements(BaseSteps.getDriver(), this);
+//        this.driver = BaseSteps.getDriver();
+//
+//    }
 
     public void closeCookie() throws InterruptedException {
         Wait<WebDriver> chromeWait = new WebDriverWait(driver, 50, 50000);

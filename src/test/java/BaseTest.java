@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import util.TestProperties;
 
 import java.util.Properties;
 import java.util.Set;
@@ -103,11 +104,6 @@ public class BaseTest {
         new Select(driver.findElement(By.className("ui-datepicker-year"))).selectByVisibleText(year);
         driver.findElement(By.xpath("//a[contains(text(), '22')]")).click();
 
-
-//        driver.findElement(By.xpath("//section[contains(@class, 'b-form-main-section')]//section[1]//img[contains(@class, 'ui-datepicker-trigger')]")).click();
-//        new Select(driver.findElement(By.className("ui-datepicker-month"))).selectByVisibleText("Авг");
-//        new Select(driver.findElement(By.className("ui-datepicker-year"))).selectByVisibleText("1992");
-//        driver.findElement(By.xpath("//a[contains(text(), '22')]")).click();
     }
 
 

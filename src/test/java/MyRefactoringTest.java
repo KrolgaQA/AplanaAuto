@@ -1,3 +1,4 @@
+import org.junit.Ignore;
 import org.junit.Test;
 import pages.SberMainPage;
 import pages.SberSendPage;
@@ -8,17 +9,18 @@ public class MyRefactoringTest extends BaseTest {
 
 
     @Test
+    @Ignore
     public void newSberTest() throws InterruptedException {
-        SberMainPage mainPage = new SberMainPage(driver);
+        SberMainPage mainPage = new SberMainPage();
         mainPage.closeCookie();
         mainPage.selectMainMenu();
         mainPage.selectSubMenu();
         checkPageTitle("«Сбербанк» - Страхование путешественников");
-        SberSendPage sendPage = new SberSendPage(driver);
+        SberSendPage sendPage = new SberSendPage();
         sendPage.takeInsurance();
         takeNewWindow();
         checkPageTitle("Сбербанк страхование");
-        SberStrahovPage strahovPage = new SberStrahovPage(driver);
+        SberStrahovPage strahovPage = new SberStrahovPage();
         strahovPage.applyInsurance();
         fillField(strahovPage.insuredSurnameItem, "Petrov");
         fillField(strahovPage.insuredNameItem, "Petr");
