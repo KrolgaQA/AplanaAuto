@@ -1,8 +1,8 @@
 import org.junit.Ignore;
 import org.junit.Test;
-import pages.SberMainPage;
-import pages.SberSendPage;
-import pages.SberStrahovPage;
+import ru.aplana.auto.pages.SberMainPage;
+import ru.aplana.auto.pages.SberSendPage;
+import ru.aplana.auto.pages.SberStrahovPage;
 
 
 public class MyRefactoringTest extends BaseTest {

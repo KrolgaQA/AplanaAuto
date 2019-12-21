@@ -1,16 +1,16 @@
-package steps;
+package ru.aplana.auto.steps;
 
-import org.junit.AfterClass;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import org.junit.Assert;
-import org.junit.BeforeClass;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import pages.BasePage;
+import ru.aplana.auto.pages.BasePage;
+import ru.aplana.auto.util.TestProperties;
 import ru.yandex.qatools.allure.annotations.Attachment;
-import util.TestProperties;
 
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -21,7 +21,7 @@ public class BaseSteps {
     protected static String baseURL;
     public static Properties properties = TestProperties.getINSTANCE().getProperties();
 
-    @BeforeClass
+    @Before
     public static void setUp() {
 
         switch (properties.getProperty("browser")) {
@@ -49,7 +49,7 @@ public class BaseSteps {
         return driver;
     }
 
-    @AfterClass
+    @After
     public static void tearDown() {
         driver.quit();
     }

@@ -1,6 +1,6 @@
-package steps;
+package ru.aplana.auto.steps;
 
-import pages.SberSendPage;
+import ru.aplana.auto.pages.SberSendPage;
 import ru.yandex.qatools.allure.annotations.Step;
 
 public class SberSendSteps {

@@ -1,4 +1,4 @@
-package pages;
+package ru.aplana.auto.pages;
 
 
 import org.openqa.selenium.WebElement;

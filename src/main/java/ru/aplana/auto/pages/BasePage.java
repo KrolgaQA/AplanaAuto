@@ -1,4 +1,4 @@
-package pages;
+package ru.aplana.auto.pages;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import steps.BaseSteps;
+import ru.aplana.auto.steps.BaseSteps;
 
 import java.util.Set;
 

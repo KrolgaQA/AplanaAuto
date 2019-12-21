@@ -1,6 +1,6 @@
-package steps;
+package ru.aplana.auto.steps;
 
-import pages.SberStrahovPage;
+import ru.aplana.auto.pages.SberStrahovPage;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import java.util.Map;

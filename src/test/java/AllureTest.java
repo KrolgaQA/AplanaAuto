@@ -1,10 +1,11 @@
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
+import ru.aplana.auto.steps.BaseSteps;
+import ru.aplana.auto.steps.SberMainSteps;
+import ru.aplana.auto.steps.SberSendSteps;
+import ru.aplana.auto.steps.SberStrahSteps;
 import ru.yandex.qatools.allure.annotations.Title;
-import steps.BaseSteps;
-import steps.SberMainSteps;
-import steps.SberSendSteps;
-import steps.SberStrahSteps;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -42,6 +43,7 @@ public class AllureTest extends BaseSteps {
     }
     @Title("Заявка на страховку Путешественников")
     @Test
+    @Ignore
     public void newSberTest() throws InterruptedException {
         sberMainSteps.closeCookie();
         sberMainSteps.selectMainMenu();
